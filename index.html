@@ -171,34 +171,14 @@ head(edge.list)</code></pre>
 </div>
 <div id="node-attributes" class="section level3">
 <h3>node attributes</h3>
-<pre class="r"><code>library(network)</code></pre>
-<pre><code>## network: Classes for Relational Data
-## Version 1.12.0 created on 2015-03-04.
-## copyright (c) 2005, Carter T. Butts, University of California-Irvine
-##                     Mark S. Handcock, University of California -- Los Angeles
-##                     David R. Hunter, Penn State University
-##                     Martina Morris, University of Washington
-##                     Skye Bender-deMoll, University of Washington
-##  For citation information, type citation(&quot;network&quot;).
-##  Type help(&quot;network-package&quot;) to get started.</code></pre>
-<pre><code>## 
-## Attaching package: 'network'</code></pre>
-<pre><code>## The following objects are masked from 'package:igraph':
-## 
-##     %c%, %s%, add.edges, add.vertices, delete.edges,
-##     delete.vertices, get.edge.attribute, get.edges,
-##     get.vertex.attribute, is.bipartite, is.directed,
-##     list.edge.attributes, list.vertex.attributes,
-##     set.edge.attribute, set.vertex.attribute</code></pre>
 <pre class="r"><code>nodes&lt;-as.matrix(V(karate))
 node.data&lt;-data.frame(ID=nodes,group=as.matrix(memb))
 #add color
 node.data$color&lt;-rainbow(length(unique(node.data$group)))[factor(node.data$group)]
 #add size based on centrality
 #rescale to 20-60
-library(scales)</code></pre>
-<pre><code>## Warning: package 'scales' was built under R version 3.2.4</code></pre>
-<pre class="r"><code>node.data$size&lt;-rescale(closeness(karate, mode=&quot;all&quot;),to=c(10,40))
+library(scales)
+node.data$size&lt;-rescale(closeness(karate, mode=&quot;all&quot;),to=c(10,40))
 head(node.data)</code></pre>
 <pre><code>##   ID group     color     size
 ## 1  1     1 #FF0000FF 40.00000
@@ -245,7 +225,7 @@ net&lt;-shiny_ly(net2) # with legend?
 plotly::layout(net,
        xaxis = list(title = &quot;&quot;, showgrid = FALSE, showticklabels = FALSE, zeroline = FALSE, hoverformat = '.2f'),
        yaxis = list(title = &quot;&quot;, showgrid = FALSE, showticklabels = FALSE, zeroline = FALSE, hoverformat = '.2f'))</code></pre>
-<iframe src="www/html/2d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0">
+<iframe src="./www/html/2d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0">
 </iframe>
 </div>
 <div id="d-plotly-network" class="section level2">
@@ -279,7 +259,7 @@ plotly::layout(net,scene = list(showlegend=TRUE,
                         yaxis=list(showgrid=FALSE,showticklabels=FALSE,zeroline=FALSE,title=&quot;&quot;),
                         xaxis=list(showgrid=FALSE,showticklabels=FALSE,zeroline=FALSE,title=&quot;&quot;),
                         zaxis=list(showgrid=FALSE,showticklabels=FALSE,zeroline=FALSE,title=&quot;&quot;)))</code></pre>
-<iframe src="www/html/3d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0">
+<iframe src="./www/html/3d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0">
 </iframe>
 </div>
 <div id="embedding-networks-in-shiny-apps" class="section level2">
@@ -321,21 +301,6 @@ plotly::layout(net,scene = list(showlegend=TRUE,
 <li>Last Updated: 2016-03-22</li>
 <li>Contact: <a href="mailto:createdatasol@gmail.com">createdatasol@gmail.com</a></li>
 </ul>
-<pre><code>## Warning: replacing previous import by 'plotly::%&gt;%' when loading
-## 'networkly'</code></pre>
-<pre><code>## Warning: replacing previous import by 'sna::%c%' when loading 'networkly'</code></pre>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## 
-## Attaching package: 'plotly'</code></pre>
-<pre><code>## The following object is masked from 'package:ggplot2':
-## 
-##     last_plot</code></pre>
-<pre><code>## The following object is masked from 'package:igraph':
-## 
-##     %&gt;%</code></pre>
-<pre><code>## The following object is masked from 'package:graphics':
-## 
-##     layout</code></pre>
 <pre><code>## R version 3.2.3 (2015-12-10)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 8.1 x64 (build 9600)
@@ -351,19 +316,18 @@ plotly::layout(net,scene = list(showlegend=TRUE,
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] plotly_2.4.4   ggplot2_2.1.0  networkly_0.1  scales_0.4.0  
-## [5] network_1.12.0 igraph_1.0.1  
+## [1] plotly_2.4.4  ggplot2_2.1.0 networkly_0.1 scales_0.4.0  igraph_1.0.1 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.3      knitr_1.12       magrittr_1.5     munsell_0.4.3   
-##  [5] xtable_1.8-2     colorspace_1.2-6 R6_2.1.2         httr_1.1.0      
-##  [9] stringr_1.0.0    plyr_1.8.3       dplyr_0.4.3      tools_3.2.3     
-## [13] parallel_3.2.3   grid_3.2.3       gtable_0.2.0     sna_2.3-2       
-## [17] DBI_0.3.1        htmltools_0.3    yaml_2.1.13      digest_0.6.9    
-## [21] assertthat_0.1   shiny_0.12.2     gridExtra_2.0.0  formatR_1.2.1   
-## [25] viridis_0.3.2    htmlwidgets_0.5  base64enc_0.1-3  mime_0.4        
-## [29] evaluate_0.8     rmarkdown_0.9.5  stringi_1.0-1    jsonlite_0.9.19 
-## [33] httpuv_1.3.3</code></pre>
+##  [1] Rcpp_0.12.3      knitr_1.12       magrittr_1.5     network_1.12.0  
+##  [5] munsell_0.4.3    xtable_1.8-2     colorspace_1.2-6 R6_2.1.2        
+##  [9] stringr_1.0.0    httr_1.1.0       plyr_1.8.3       dplyr_0.4.3     
+## [13] tools_3.2.3      parallel_3.2.3   grid_3.2.3       gtable_0.2.0    
+## [17] sna_2.3-2        DBI_0.3.1        htmltools_0.3    yaml_2.1.13     
+## [21] digest_0.6.9     assertthat_0.1   shiny_0.12.2     gridExtra_2.0.0 
+## [25] formatR_1.2.1    viridis_0.3.2    htmlwidgets_0.5  base64enc_0.1-3 
+## [29] mime_0.4         evaluate_0.8     rmarkdown_0.9.5  stringi_1.0-1   
+## [33] jsonlite_0.9.19  httpuv_1.3.3</code></pre>
 </div>
 </div>
 

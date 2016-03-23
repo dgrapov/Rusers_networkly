@@ -43,8 +43,7 @@ edge.list$ID<-"friends"
 head(edge.list)
 ```
 ### node attributes
-```{r}
-library(network)
+```{r,,message=FALSE,warning=FALSE}
 nodes<-as.matrix(V(karate))
 node.data<-data.frame(ID=nodes,group=as.matrix(memb))
 #add color
@@ -95,7 +94,7 @@ plotly::layout(net,
 
 ```
 
-<iframe src="www/html/2d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
+<iframe src="./www/html/2d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
 
 ## 3D Plotly Network
 ```{r,eval=FALSE,message=FALSE,warning=FALSE}
@@ -131,7 +130,7 @@ plotly::layout(net,scene = list(showlegend=TRUE,
 
 ```
 
-<iframe src="www/html/3d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
+<iframe src="./www/html/3d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
 
 ## Embedding Networks in Shiny Apps
 ## `ui.R`
@@ -157,7 +156,6 @@ shinyServer(function(session,input, output) {
 networkly::networklyShiny()
 ```
 
-
 ## Additional Resources
 <h2><a href="https://github.com/rich-iannone/DiagrammeR" target="_blank">DiagrammeR</a></h2>
 #### For directed graphs +
@@ -167,7 +165,7 @@ networkly::networklyShiny()
 * Last Updated: `r Sys.Date()`
 * Contact: createdatasol@gmail.com
 
-```{r,echo=FALSE}
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
 library(networkly)
 library(plotly)
 library(igraph)
