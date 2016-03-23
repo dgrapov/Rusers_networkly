@@ -95,7 +95,7 @@ plotly::layout(net,
 
 ```
 
-<iframe src="./www/html/2d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
+<iframe src="www/html/2d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
 
 ## 3D Plotly Network
 ```{r,eval=FALSE,message=FALSE,warning=FALSE}
@@ -131,7 +131,7 @@ plotly::layout(net,scene = list(showlegend=TRUE,
 
 ```
 
-<iframe src="./www/html/3d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
+<iframe src="www/html/3d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
 
 ## Embedding Networks in Shiny Apps
 ## `ui.R`
@@ -157,18 +157,21 @@ shinyServer(function(session,input, output) {
 networkly::networklyShiny()
 ```
 
-<iframe src="http://ec2-52-22-43-130.compute-1.amazonaws.com:3838/demos/networkly/" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
 
 ## Additional Resources
-### `DiagrammeR`
+<h2><a href="https://github.com/rich-iannone/DiagrammeR" target="_blank">DiagrammeR</a></h2>
 #### For directed graphs +
-<iframe src="https://github.com/rich-iannone/DiagrammeR" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
+![](./www/img/diagrammer.png)
 
 ## About
 * Last Updated: `r Sys.Date()`
 * Contact: createdatasol@gmail.com
 
 ```{r,echo=FALSE}
+library(networkly)
+library(plotly)
+library(igraph)
+
 sessionInfo()
 ```
 
