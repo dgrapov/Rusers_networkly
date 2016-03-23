@@ -1,3 +1,4 @@
+setwd("assets/widgets")
 
 #create plotly plots
 # 2D Karate network
@@ -58,7 +59,6 @@ p1<-plotly::layout(net,
                xaxis = list(title = "", showgrid = FALSE, showticklabels = FALSE, zeroline = FALSE, hoverformat = '.2f'),
                yaxis = list(title = "", showgrid = FALSE, showticklabels = FALSE, zeroline = FALSE, hoverformat = '.2f'))
 
-setwd("www/html")
 htmlwidgets::saveWidget(plotly::as.widget(p1), file='2D_plotly.html')
 
 

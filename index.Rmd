@@ -130,7 +130,7 @@ plotly::layout(net,scene = list(showlegend=TRUE,
 
 ```
 
-<iframe src="./inst/www/html/3d_plotly.html" style="border: none; width: 100%; height: 500px" frameborder="0"> </iframe>
+<iframe src="./inst/www/html/3d_plotly.html" style="border: none; width: 100%; height: 750px" frameborder="0"> </iframe>
 
 ## Embedding Networks in Shiny Apps
 ## `ui.R`
